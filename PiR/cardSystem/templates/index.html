@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Local Card Detection System</h1>
+  <p>Welcome to Card Detection System, a website developed by <em>Vi & Dom</em>!</p>
+  <h2>Dynamic content</h2>
+  <p>The system has the following record counts:</p>
+  <ul>
+    <li><strong>cards:</strong> {{ num_cards }}</li>
+    <li><strong>Cards available:</strong> {{ num_cards_available }}</li>
+    <li><strong>Owners:</strong> {{ num_owners }}</li>
+  </ul>
+{% endblock %}
