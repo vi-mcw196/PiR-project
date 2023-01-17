@@ -3,6 +3,9 @@
 {% block content %}
   <h1 class="text-primary display-3">Local Card Detection System</h1>
   <p>Welcome to Card Detection System, a website developed by <em>Vi & Dom</em>!</p>
+
+  <hr/>
+
   <h2 class="text-secondary">Dynamic content</h2>
   <p>The system has the following record counts:</p>
   <ul>
@@ -11,12 +14,16 @@
     <li><strong>Owners:</strong> {{ num_owners }}</li>
   </ul>
 
-  <h3 class="text-secondary">Last record:</h3>
+  <hr/>
+
+  <h3 class="text-secondary">Last record</h3>
     <strong>last record with 
       <span class="text-success">access granted</span>
       or
       <span class="text-danger">access denied</span>
     </strong>
+
+    <hr/>
 
   <h2 class="text-secondary">Buttons</h2>
   <p>here you have access to main functionalities:</p>
@@ -27,5 +34,7 @@
   <button type="button" class="btn btn-secondary">Edit card</button>
   <button type="button" class="btn btn-danger">Delete card</button>
   <!-- maybe add card owner end edit card owner? -->
+
+  <hr/>
 
 {% endblock %}
