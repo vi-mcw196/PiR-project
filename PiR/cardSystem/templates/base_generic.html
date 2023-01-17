@@ -16,16 +16,30 @@
     <div class="row">
       <div class="col-sm-2">
       {% block sidebar %}
-        <ul class="sidebar-nav">
-          <li><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="">All cards</a></li>
-          <li><a href="">All owners</a></li>
-        </ul>
+        <!-- Sidebar -->
+  <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+    <div class="position-sticky">
+      <div class="list-group list-group-flush mx-3 mt-4">
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
+          <i class="fas fa-chart-area fa-fw me-3"></i><span>Home</span>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-lock fa-fw me-3"></i><span>All cards</span></a
+        >
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-chart-line fa-fw me-3"></i><span>All owners</span></a
+        >
+        
+      </div>
+    </div>
+  </nav>
+  <!-- Sidebar -->
      {% endblock %}
       </div>
       <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
     </div>
   </div>
+  
 
   <!-- Footer -->
 <footer class="fixed-bottom text-center text-lg-start bg-light text-muted">
