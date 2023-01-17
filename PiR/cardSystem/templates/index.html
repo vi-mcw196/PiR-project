@@ -1,9 +1,9 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Local Card Detection System</h1>
+  <h1 class="text-primary display-3">Local Card Detection System</h1>
   <p>Welcome to Card Detection System, a website developed by <em>Vi & Dom</em>!</p>
-  <h2>Dynamic content</h2>
+  <h2 class="text-secondary">Dynamic content</h2>
   <p>The system has the following record counts:</p>
   <ul>
     <li><strong>cards:</strong> {{ num_cards }}</li>
@@ -11,14 +11,14 @@
     <li><strong>Owners:</strong> {{ num_owners }}</li>
   </ul>
 
-  <h3>Last record:</h3>
+  <h3 class="text-secondary">Last record:</h3>
     <strong>last record with 
       <span class="text-success">access granted</span>
       or
       <span class="text-danger">access denied</span>
     </strong>
 
-  <h2>Buttons</h2>
+  <h2 class="text-secondary">Buttons</h2>
   <p>here you have access to main functionalities:</p>
   <button type="button" class="btn btn-primary">Show cards</button>
   <button type="button" class="btn btn-primary">Show records</button>
