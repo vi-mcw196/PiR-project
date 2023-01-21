@@ -5,7 +5,7 @@ BROKER_HOST = "io.adafruit.com"  # variable for mqtt broker address
 PORT = 1883  # mqtt broker port
 TOPIC = "JavaPG/feeds/rpi-cpu"  # topic to publish cpu
 ADAFRUIT_USER = "JavaPG"
-ADAFRUIT_KEY = "aio_ZpSW58DN5RUr8yHYjxyHYDij1mAI"
+ADAFRUIT_KEY = "aio_bBTw41wA1QduVSprc7nDrLQALlZj"
 
 
 def on_connect(client, userdata, flags, rc):  # function called on connected
