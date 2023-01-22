@@ -22,6 +22,9 @@ def on_connect(client, userdata, flags, rc):  # function called on connected
 def on_message(client, userdata, msg):
     now = datetime.now().time()
     payload = msg.payload.decode("utf-8")
+    # topic - rasp/led
+    # if payload == 1: ->>> LED ne zielono
+    # if payload == 0: ->>> LED ne czerwone + Buzzer (dodatkowo)
     print("Msg received {}, topic: {} value: {}".format(now, msg.topic, payload))
 
 
