@@ -1,43 +1,44 @@
-import paho.mqtt.client as mqtt  # importing mqtt library
+import paho.mqtt.client as mqtt
 from datetime import datetime
 
-BROKER_HOST = "io.adafruit.com"  # variable for mqtt broker address
-PORT = 1883  # mqtt broker port
-TOPIC = "JavaPG/feeds/rpi-cpu"  # topic to publish cpu
+BROKER_HOST = "io.adafruit.com"
+PORT = 1883
+SUBSCRIBE_TOPIC = "JavaPG/feeds/rpi-rfid"
+PUBLISHER_TOPIC = "JavaPG/feeds/rpi-led"
 ADAFRUIT_USER = "JavaPG"
-ADAFRUIT_KEY = "aio_bBTw41wA1QduVSprc7nDrLQALlZj"
+ADAFRUIT_KEY = "aio_FqvQ51I2XkJCChPfNRnCY3IqE9SV"
 
 
-def on_connect(client, userdata, flags, rc):  # function called on connected
+def on_connect(client, userdata, flags, rc):
     if rc == 0:
-        client.connected_flag = True  # set flag
+        client.connected_flag = True
         print("Connected OK")
-        client.subscribe(TOPIC, qos=0)
+        client.subscribe(SUBSCRIBE_TOPIC, qos=0)
 
     else:
         print("Bad connection Returned code=", rc)
 
 
-# The callback for when a message is received from the server.
 def on_message(client, userdata, msg):
     now = datetime.now().time()
     payload = msg.payload.decode("utf-8")
-    # topic - rasp/led
-    # if payload == 1: ->>> LED ne zielono
-    # if payload == 0: ->>> LED ne czerwone + Buzzer (dodatkowo)
+    list_dostepnosci = ['25118719434160']
+    if payload != 'bad':
+        if payload in list_dostepnosci:
+            client.publish(PUBLISHER_TOPIC, "good", 0, True)
+        else:
+            client.publish(PUBLISHER_TOPIC, "bad", 0, True)
     print("Msg received {}, topic: {} value: {}".format(now, msg.topic, payload))
 
 
 mqtt.Client.connected_flag = False
 
-client = mqtt.Client("Subscriber1")  # creating client object
-client.on_connect = on_connect  # defining function o handler on connected
+client = mqtt.Client("SubscriberTEST")
+client.on_connect = on_connect
 client.on_message = on_message
 
 print("Connecting to broker ", BROKER_HOST)
 client.username_pw_set(ADAFRUIT_USER, password=ADAFRUIT_KEY)
 client.connect(BROKER_HOST, port=PORT, keepalive=60)
 
-# Blocking call that processes network traffic, dispatches callbacks and
-# handles reconnecting.
 client.loop_forever()

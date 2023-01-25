@@ -2,14 +2,14 @@ import paho.mqtt.client as mqtt  # importing mqtt library
 import time
 import psutil
 
-BROKER_HOST = "io.adafruit.com"  # variable for mqtt broker address
-PORT = 1883  # mqtt broker port
-TOPIC = "JavaPG/feeds/rpi-cpu"  # topic to publish cpu
+BROKER_HOST = "io.adafruit.com"
+PORT = 1883
+TOPIC = "JavaPG/feeds/rpi-rfid"
 ADAFRUIT_USER = "JavaPG"
-ADAFRUIT_KEY = "aio_bBTw41wA1QduVSprc7nDrLQALlZj"
+ADAFRUIT_KEY = "aio_FqvQ51I2XkJCChPfNRnCY3IqE9SV"
 
 
-def on_connect(client, userdata, flags, rc):  # function called on connected
+def on_connect(client, userdata, flags, rc):
     if rc == 0:
         client.connected_flag = True  # set flag
         print("Connected OK")
@@ -19,26 +19,26 @@ def on_connect(client, userdata, flags, rc):  # function called on connected
 
 mqtt.Client.connected_flag = False
 
-client = mqtt.Client("Publisher1")  # creating client object
-client.on_connect = on_connect  # defining function o handler on connected
+client = mqtt.Client("Publisher1")
+client.on_connect = on_connect
 
 print("Connecting to broker ", BROKER_HOST)
 client.username_pw_set(ADAFRUIT_USER, password=ADAFRUIT_KEY)
-client.connect(BROKER_HOST, port=PORT)  # starting connection
-client.loop_start()  # starting mqtt client internal loop
+client.connect(BROKER_HOST, port=PORT)
+client.loop_start()
 
-while not client.connected_flag:  # wait until connected to broker
+while not client.connected_flag:
     print("Waiting for connection")
     time.sleep(1)
 
 try:
-    while True:  # main reading loop
+    while True:
         cpu = psutil.cpu_percent()
         print("CPU", cpu)
-        client.publish(TOPIC, cpu, 0, True)  # publish current cpu load
+        client.publish(TOPIC, cpu, 0, True)
         time.sleep(5)
 except KeyboardInterrupt:
     print('Stoping CPU publisher')
 
-client.loop_stop()  # stop internal mqtt loop
-client.disconnect()  # disconnect broker
+client.loop_stop()
+client.disconnect()
