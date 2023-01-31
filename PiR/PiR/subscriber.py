@@ -6,7 +6,7 @@ PORT = 1883
 SUBSCRIBE_TOPIC = "JavaPG/feeds/rpi-rfid"
 PUBLISHER_TOPIC = "JavaPG/feeds/rpi-led"
 ADAFRUIT_USER = "JavaPG"
-ADAFRUIT_KEY = "aio_FqvQ51I2XkJCChPfNRnCY3IqE9SV"
+ADAFRUIT_KEY = "aio_FLyR35i02lrBQzjXCssKYforlInx"
 
 
 def on_connect(client, userdata, flags, rc):

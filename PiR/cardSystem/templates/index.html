@@ -6,7 +6,7 @@
 
   <hr/>
 
-  <h2 class="text-secondary">Last known info</h2>
+  <h2 class="text-secondary">Card Number</h2>
   <p>The system has the following record counts:</p>
   <ul>
     <li><strong>Cards in system:</strong> {{ num_cards }}</li>
@@ -14,26 +14,15 @@
 
   <hr/>
 
-  <h3 class="text-secondary">Last record</h3>
-    <strong>last record with
-      <span class="text-success">access granted</span>
-      or
-      <span class="text-danger">access denied</span>
-    </strong>
 
-    <hr/>
-
-  <h2 class="text-secondary">Buttons</h2>
-  <p>here you have access to main functionalities:</p>
-  <button type="button" class="btn btn-primary">Show cards</button>
-  <button type="button" class="btn btn-primary">Show records</button>
+  <h2 class="text-secondary">Actions</h2>
+  <p>Here you can see your cards:</p>
+  <a href="/admin/cardSystem/card/"><button type="button" class="btn btn-primary">Show cards</button></a>
   <br/><br/><br/>
-  <p>And CRUD operations for cards:</p>
-  <button type="button" class="btn btn-primary">Add new card</button>
-  <button type="button" class="btn btn-secondary">Edit card</button>
-  <button type="button" class="btn btn-danger">Delete card</button>
-  <!-- maybe add card owner end edit card owner? -->
-
+  <p>And CRUD operations for cards (only for admin):</p>
+  <a href="/admin/cardSystem/card/add/"><button type="button" class="btn btn-primary">Add new card</button></a>
+  <a href="/admin/cardSystem/card/18427321-8d30-4a4c-ba91-3a2b2c4ad22e/change/"><button type="button" class="btn btn-secondary">Edit card</button></a>
+  <a href="/admin/cardSystem/card/18427321-8d30-4a4c-ba91-3a2b2c4ad22e/change/"><button type="button" class="btn btn-danger">Delete card</button></a>
   <hr/>
 
 {% endblock %}
