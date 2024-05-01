@@ -2,8 +2,8 @@
 
 ## Temat: Electronic flat key
 
-#### Zespół dwuosobowy - Viktor Moldovan, Dominik Tomaszewski
-#### Prowadzący labolatorium: Dr inż. Krzysztof Chudzik
+#### Two-person team - Viktor Moldovan, Dominik Tomaszewski
+#### Laboratory leader: Dr inż. Krzysztof Chudzik
 
 ## Functional requirements
  - Reading of a card serving as a key through a lock (RFID proximity card reader).
